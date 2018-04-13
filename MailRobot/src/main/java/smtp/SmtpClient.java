@@ -1,4 +1,16 @@
-package main.java.smtp;
+package smtp;
 
-public class SmtpClient {
+import model.mail.Mail;
+
+import java.io.IOException;
+
+public class SmtpClient implements ISmtpClient {
+
+    public SmtpClient() {
+    }
+
+    @Override
+    public void sendMessage(Mail message) {
+
+    }
 }
