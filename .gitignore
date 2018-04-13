@@ -1,0 +1,11 @@
+# PDF's
+*.pdf
+
+# intellj config files
+*.idea
+*.iws
+*.iml
+
+# output from IDE
+out/
+*.class
