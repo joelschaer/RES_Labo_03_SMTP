@@ -121,4 +121,25 @@ public class ConfigurationManager implements IConfigurationManager {
 
 
     }
+
+    public String getSmtpServerAddress(){
+        return smtpServerAddress;
+    }
+    public int getSmtppServerPort(){
+        return smtpServerPort;
+    }
+    public int getnumberOfGroups(){
+        return numberOfGroups;
+    }
+    public String getWitnessesToCC(){
+        return witnessesToCC;
+    }
+
+    public List<Person> getPersonList(){
+        return new ArrayList<>(personList);
+    }
+
+    public List<String> getMessageList(){
+        return new ArrayList<>(messageList);
+    }
 }
