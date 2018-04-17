@@ -7,9 +7,9 @@ The mock sever could help you to test the Email sending, This server receive the
 
 
 1. First Get the MockMock executable : 
-	- In our Git in folder: Docker/MockMock/release
+	- In our Git in folder: Docker/MockMockServer/release
 	- Official Git : https://github.com/tweakers-dev/MockMock
-2. Normaly you have get the MockMock.jar file (you find it in release folder)mv D
+2. Normaly you have get the MockMock.jar file (you find it in release folder)
 
 ### Test in local
 
