@@ -76,7 +76,6 @@ public class PrankGenerator {
             prank.setWitnessesToCc(config.getWitnessesToCC());
 
             pranks.add(prank);
-
         }
 
         return pranks;
