@@ -10,7 +10,7 @@ public interface IConfigurationManager {
     public String getSmtpServerAddress();
     public int getSmtppServerPort();
     public int getnumberOfGroups();
-    public String getWitnessesToCC();
+    public List<Person> getWitnessesToCC();
     public List<Person> getPersonList();
     public List<String> getMessageList();
 }

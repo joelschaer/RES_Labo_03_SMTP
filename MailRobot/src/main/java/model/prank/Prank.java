@@ -9,7 +9,7 @@ public class Prank {
 
     private Person fakeSender;
     private List<Person> victimsTo = new ArrayList<>();
-    private List<Person> victimsCc = new ArrayList<>();
+    private List<Person> witnessesToCc = new ArrayList<>();
     private String message;
 
     public Person getFakeSender() {
@@ -28,12 +28,12 @@ public class Prank {
         this.victimsTo.addAll(victimsTo);
     }
 
-    public List<Person> getVictimsCc() {
-        return new ArrayList<>(victimsCc);
+    public List<Person> getWitnessesToCc() {
+        return new ArrayList<>(witnessesToCc);
     }
 
-    public void addVictimsCc(List<Person> victimsCc) {
-        this.victimsCc.addAll(victimsCc);
+    public void setWitnessesToCc(List<Person> witnessesToCc) {
+        this.witnessesToCc.addAll(witnessesToCc);
     }
 
     public String getMessage() {
