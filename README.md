@@ -13,15 +13,15 @@ The mock sever could help you to test the Email sending, This server receive the
 
 ### Test in local
 
-- Open a terminal and start your MockMock server for that type next command :
+1. Open a terminal and start your MockMock server for that type next command :
 	- java -jar MockMock.jar -p 2525
 
 	(-jar : allow to specify the runnable java you want to execute)
     (-p : allow to specify the reception SMTP port of you Mock server)
-- try to contact your server with telnet in your terminal :
+2. try to contact your server with telnet in your terminal :
 	- telnet localhost 2525
 
-- To see your emails send open a web page at : http://localhost:8282/
+3. To see your emails send open a web page at : http://localhost:8282/
     
 ### Test with Docker
 1. Make sure that you have installed Docker.
@@ -36,7 +36,7 @@ The mock sever could help you to test the Email sending, This server receive the
 	- In terminal get the Ip adress of you docker container :
 		- docker inspect MockServer
 		- Search the entry IPAddress in NetworkSettings object.
-	- open a web page at : http://<IPAddress>:8282/
+	- open a web page at : http://`<IPAddress>`:8282/
 	
 ## Tool configuration
 
