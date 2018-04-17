@@ -30,7 +30,7 @@ The mock sever could help you to test the Email sending, This server receive the
 	- docker build -t mockmock . (don't forget the last point)
 	- (you need to be where you dockerfile is to run this command)
 4. In terminal run you docker container :
-	- docker run --name MockServer mockmock
+	- docker run -p 2525.2525 --name MockServer mockmock
 
 6. To see your email send :
 	- In terminal get the Ip adress of you docker container :
