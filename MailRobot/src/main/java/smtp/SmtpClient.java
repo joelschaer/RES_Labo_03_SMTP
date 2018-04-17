@@ -1,5 +1,6 @@
 package smtp;
 
+import config.ConfigurationManager;
 import model.mail.Mail;
 
 import java.io.BufferedReader;
@@ -19,11 +20,12 @@ public class SmtpClient implements ISmtpClient {
     private PrintWriter out;
     private BufferedReader in;
     private BufferedReader stdIn;
+    private ConfigurationManager config;
 
-    public SmtpClient(String host, int port) {
+    public SmtpClient(ConfigurationManager config) {
 
         try {
-            Socket echoSocket = new Socket(host, port);
+            Socket echoSocket = new Socket(config.getSmtpServerAddress(), config.getSmtppServerPort());
             PrintWriter out =
                     new PrintWriter(echoSocket.getOutputStream(), true);
             BufferedReader in =

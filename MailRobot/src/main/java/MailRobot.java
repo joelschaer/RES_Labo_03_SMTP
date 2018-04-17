@@ -11,8 +11,7 @@ public class MailRobot {
 	    ConfigurationManager config = new ConfigurationManager();
         config.loadEmails("./config/victims.RES.utf8");
         config.loadMessages("./config/messages.utf8");
-
-        SmtpClient smtp = new SmtpClient(config.getSmtpServerAddress(), config.getSmtppServerPort());
+        SmtpClient smtp = new SmtpClient(config);
 
     }
 }
