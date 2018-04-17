@@ -16,7 +16,8 @@ public class ConfigurationManager implements IConfigurationManager {
     private String smtpServerAddress;
     private int smtpServerPort;
     private int numberOfGroups;
-    private String witnessesToCC;
+
+    private List<Person> witnessesToCc;
 
     private List<Person> personList;
 
@@ -36,7 +37,18 @@ public class ConfigurationManager implements IConfigurationManager {
             smtpServerAddress = prop.getProperty("smtpServerAddress");
             smtpServerPort = Integer.parseInt(prop.getProperty("smtpServerPort"));
             numberOfGroups = Integer.parseInt(prop.getProperty("numberOfGroups"));
-            witnessesToCC = prop.getProperty("witnessesToCC");
+            String witnessesList = prop.getProperty("witnessesToCC");
+
+            // extract and create the witnesses list
+            while(!witnessesList.equals("")){
+                String witness = witnessesList.split(",")[0];
+                witnessesList = witnessesList.split(",")[1];
+
+                String firstname = witness.split("\\.")[0];
+                String lastname = witness.split("\\.")[1].split("@")[0];
+
+                witnessesToCc.add(new Person(firstname, lastname, witness));
+            }
 
         }catch (IOException ex) {
             ex.printStackTrace();
@@ -65,6 +77,8 @@ public class ConfigurationManager implements IConfigurationManager {
             String lastname;
             String line;
             while((line = in.readLine()) != null){
+                if(line.equals(""))
+                    continue;
                 line = line.toLowerCase();
                 firstname = line.split("\\.")[0];
                 lastname = line.split("\\.")[1].split("@")[0];
@@ -131,14 +145,13 @@ public class ConfigurationManager implements IConfigurationManager {
     public int getnumberOfGroups(){
         return numberOfGroups;
     }
-    public String getWitnessesToCC(){
-        return witnessesToCC;
-    }
 
+    public List<Person> getWitnessesToCC(){
+        return new ArrayList<>(witnessesToCc);
+    }
     public List<Person> getPersonList(){
         return new ArrayList<>(personList);
     }
-
     public List<String> getMessageList(){
         return new ArrayList<>(messageList);
     }
