@@ -1,4 +1,3 @@
-import model.mail.Group;
 import model.mail.Mail;
 import model.mail.Person;
 import model.prank.Prank;
@@ -22,6 +21,8 @@ public class MailRobot {
         PrankGenerator pranks = new PrankGenerator(config);
         List<Prank> prankList = pranks.generatesPranks();
 
+        List<Mail> mailList = new ArrayList<>();
+
         for(Prank prank: prankList){
             String fakeSenderAddress = prank.getFakeSender().getAddress();
 
@@ -39,12 +40,18 @@ public class MailRobot {
 
             String message = prank.getMessage();
 
-            Mail mailPrank = new Mail(fakeSenderAddress, victimsToAddresses, witnessesToCcAddresses, prank.getMessage());
-            
+            mailList.add(new Mail(fakeSenderAddress, victimsToAddresses, witnessesToCcAddresses, prank.getMessage()));
         }
 
-        //SmtpClient smtp = new SmtpClient(config);
+        SmtpClient smtp = new SmtpClient(config.getSmtpServerAddress(), config.getSmtppServerPort());
 
+        smtp.connect();
+
+        for(Mail mail: mailList){
+            smtp.sendMessage(mail);
+        }
+
+        smtp.diconnect();
 
     }
 }
