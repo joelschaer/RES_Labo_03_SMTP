@@ -32,7 +32,7 @@ public class MailRobot {
                 victimsToAddresses.add(victim.getAddress());
             }
 
-            List<Person> witnessesToCc = prank.getVictimsTo();
+            List<Person> witnessesToCc = prank.getWitnessesToCc();
             List<String> witnessesToCcAddresses = new ArrayList<>();
             for(Person witnesse: witnessesToCc){
                 witnessesToCcAddresses.add(witnesse.getAddress());

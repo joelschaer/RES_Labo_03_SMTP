@@ -66,6 +66,23 @@ public class SmtpClient implements ISmtpClient {
             command = in.readLine();
             LOG.log(Level.INFO, "SERVER SEND : " + command);
 
+            out.print("From: " + mail.getFrom() + "\r\n");
+            out.flush();
+
+            out.print("To: ");
+            for (String to : mail.getTo()) {
+                out.print(to + ",");
+            }
+            out.print("\r\n");
+            out.flush();
+
+            out.print("Cc: ");
+            for (String cc : mail.getCc()) {
+                out.print(cc + ",");
+            }
+            out.print("\r\n");
+            out.flush();
+
             out.print(mail.getBody() + "\r\n.\r\n");
             out.flush();
 

@@ -14,4 +14,9 @@ public class Group {
     public List<Person> getMembers() {
         return new ArrayList<>(members);
     }
+
+    public boolean contains(Person person){
+        return members.contains(person);
+
+    }
 }

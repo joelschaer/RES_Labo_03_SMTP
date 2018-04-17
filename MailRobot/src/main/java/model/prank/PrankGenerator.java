@@ -45,7 +45,7 @@ public class PrankGenerator {
             for(int j = 0; j < nbInGroup; j++){
                 int rand = (int)(Math.random() * nbVictims);
                 Person victim = victims.get(rand);
-                if(victims.contains(victim)){
+                if(groups[i].contains(victim)){
                     j--;
                 }
                 else{

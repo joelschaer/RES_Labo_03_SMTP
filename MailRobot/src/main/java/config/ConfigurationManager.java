@@ -4,6 +4,7 @@ import model.mail.Person;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -37,13 +38,21 @@ public class ConfigurationManager implements IConfigurationManager {
             smtpServerAddress = prop.getProperty("smtpServerAddress");
             smtpServerPort = Integer.parseInt(prop.getProperty("smtpServerPort"));
             numberOfGroups = Integer.parseInt(prop.getProperty("numberOfGroups"));
-            String witnessesList = prop.getProperty("witnessesToCC");
+            String witnesses = prop.getProperty("witnessesToCC");
 
             // extract and create the witnesses list
-            while(!witnessesList.equals("")){
+            witnessesToCc = new ArrayList<>();
+            List<String> witnessesList = Arrays.asList(witnesses.split("\\s*,\\s*"));
+            /*while(!witnessesList.equals("")){
                 String witness = witnessesList.split(",")[0];
-                witnessesList = witnessesList.split(",")[1];
+                if(witnessesList.split(",")[1] == null){
+                    witnessesList = "";
+                }
+                else{
+                    witnessesList = witnessesList.split(",")[1];
+                }*/
 
+            for(String witness: witnessesList){
                 String firstname = witness.split("\\.")[0];
                 String lastname = witness.split("\\.")[1].split("@")[0];
 
