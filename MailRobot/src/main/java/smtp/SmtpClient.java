@@ -83,7 +83,13 @@ public class SmtpClient implements ISmtpClient {
             out.print("\r\n");
             out.flush();
 
-            out.print(mail.getBody() + "\r\n.\r\n");
+            out.print("Content-Type: text/plain; charset=utf-8\r\n");
+            out.flush();
+
+            out.print(mail.getBody() + "\r\n");
+            out.flush();
+
+            out.print(".\r\n");
             out.flush();
 
             command = in.readLine();
