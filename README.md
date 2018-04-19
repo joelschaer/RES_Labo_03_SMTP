@@ -21,7 +21,8 @@ The mock sever could help you to test the Email sending, This server receive the
 2. try to contact your server with telnet in your terminal :
 	- telnet localhost 2525
 
-3. To see your emails send open a web page at : http://localhost:8282/
+3. To see your email send :
+	- open a web page at : http://localhost:8282/
     
 ### Test with Docker
 1. Make sure that you have installed Docker.
@@ -33,15 +34,27 @@ The mock sever could help you to test the Email sending, This server receive the
 	- docker run -p 2525:2525 --name MockServer mockmock
 
 6. To see your email send :
-	- In terminal get the Ip adress of you docker container :
-		- docker inspect MockServer
-		- Search the entry IPAddress in NetworkSettings object.
 	- open a web page at : http://localhost:8282/
 	
 ## Tool configuration
 
+1. To configure the application you need to modifiy the file config.properties.
+	- You'll find this file here : MailRobot/config/config.properties
+
+		- smtpServerAddress : The distant serveur adresse (localhost if you use the Mock server in local or witch docker).
+		- smtpServerPort : The distant port of the server smtp (2525 if you use our tutorial for mock).
+		- numberOfGroups : Number of group whose you want to send email.
+		- witnessesToCC : CC email person who receive all email send as copy. 
+	
+2. To add some message to send you need to modifiy the file messages.utf8.
+	- You'll find this file here : MailRobot/config/messages.utf8
+	
+    	- Every message need a Subject and un message.
+    	- Between your messages you need to add two equal "==".
+    	- the structure is "Subject: `<yourSubject>`newline then the message.
+    	
+3. To add some recipients you need to modifiy the file victims.RES.utf8
+	- You'll find this file here : MailRobot/config/victims.RES.utf8
+		- One email per line.
+
 ## Running a prank campaign
-
-
-
-
