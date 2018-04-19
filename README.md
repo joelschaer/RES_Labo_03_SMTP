@@ -33,7 +33,7 @@ A Mock sever is a factice SMTP server used in a test environnement. It is possib
 	- `docker build -t mockmock . `(don't forget the last point)
 	- (you need to be where you dockerfile is to run this command)
 4. In terminal run you docker container :
-	- `docker run -p 2525:2525 --name MockServer mockmock`
+	- `docker run -p 2525:2525 -p 8282:8282 --name MockServer mockmock`
 
 6. To see your email send :
 	- open a web page at : [http://localhost:8282/]()
@@ -72,4 +72,3 @@ witnessesToCC=joel.schar@heig-vd.ch,```
 ## Running a prank campaign
 When all the properties are set, launching the program will open a connection to the server and begin sending the emails. 
 
-## Code Specifications

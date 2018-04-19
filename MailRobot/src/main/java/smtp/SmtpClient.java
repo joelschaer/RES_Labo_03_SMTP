@@ -1,6 +1,5 @@
 package smtp;
 
-import config.ConfigurationManager;
 import model.mail.Mail;
 
 import java.io.BufferedReader;
@@ -21,12 +20,13 @@ public class SmtpClient implements ISmtpClient {
 
     public SmtpClient(String hostname, int port) {
 
+        // initiates connection to the smtp server
         try {
             socket = new Socket(hostname, port);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            // We receive the HELLO from the server
+            // We receive the Hello from the server
             String command = in.readLine();
             LOG.log(Level.INFO, "SERVER SEND : " + command);
 
@@ -37,6 +37,8 @@ public class SmtpClient implements ISmtpClient {
 
     @Override
     public void sendMessage(Mail mail) {
+
+        // construction of the mail depanding on the specification in mail and sending it
         try {
             out.print("MAIL FROM: " + mail.getFrom() + "\r\n");
             out.flush();
@@ -83,6 +85,7 @@ public class SmtpClient implements ISmtpClient {
             out.print("\r\n");
             out.flush();
 
+            // utf8 encoding for the mail body
             out.print("Content-Type: text/plain; charset=utf-8\r\n");
             out.flush();
 
@@ -102,6 +105,8 @@ public class SmtpClient implements ISmtpClient {
 
     @Override
     public void connect(){
+
+        // opening a connection to the server
         try{
             // WE send our EHLO
             out.print("EHLO kitty\r\n");

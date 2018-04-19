@@ -15,10 +15,7 @@ public class PrankGenerator {
         this.config = configurationManager;
     }
 
-    /**
-     * Il faut implémenter les fonctional requirements dans cette classe
-     * @return
-     */
+
     public List<Prank> generatesPranks(){
         List<Prank> pranks = new ArrayList<>();
 

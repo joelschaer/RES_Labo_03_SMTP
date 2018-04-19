@@ -31,7 +31,17 @@ public class ConfigurationManager implements IConfigurationManager {
         InputStream in = null;
 
         try{
-            in = new FileInputStream("./config/config.properties");
+            // test if property file exists
+            File inConfig = new File("./config/config.properties");
+            File inCurrent = new File("./config.properties");
+
+            if(inConfig.exists())
+                in = new FileInputStream("./config/config.properties");
+            else if(inCurrent.exists())
+                in = new FileInputStream("./config.properties");
+            else
+                throw new IOException("properties file is missing");
+
 
             prop.load(in);
 
@@ -43,14 +53,6 @@ public class ConfigurationManager implements IConfigurationManager {
             // extract and create the witnesses list
             witnessesToCc = new ArrayList<>();
             List<String> witnessesList = Arrays.asList(witnesses.split("\\s*,\\s*"));
-            /*while(!witnessesList.equals("")){
-                String witness = witnessesList.split(",")[0];
-                if(witnessesList.split(",")[1] == null){
-                    witnessesList = "";
-                }
-                else{
-                    witnessesList = witnessesList.split(",")[1];
-                }*/
 
             for(String witness: witnessesList){
                 String firstname = witness.split("\\.")[0];

@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MailRobot" target="7" />
+      <module name="MailRobot" target="1.9" />
     </bytecodeTargetLevel>
   </component>
 </project>
