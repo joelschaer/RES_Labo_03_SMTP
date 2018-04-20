@@ -52,7 +52,7 @@ numberOfGroups=6
 witnessesToCC=joel.schar@heig-vd.ch,```
 
 2. To add some message to send you need to modifiy the file messages.utf8.
-	- You'll find this file here : MailRobot/config/messages.utf8
+	- You'll find this file here : MailRobot_Test/config/messages.utf8
     - Every message need a Subject and un message.
     - Between your messages you need to add two equal "==" on a new line .
     - the structure is :
@@ -65,10 +65,14 @@ witnessesToCC=joel.schar@heig-vd.ch,```
         ```
 
 3. To add some recipients you need to modifiy the file victims.RES.utf8
-	- You'll find this file here : MailRobot/config/victims.RES.utf8
+	- You'll find this file here : MailRobot_Test/config/victims.RES.utf8
 	- One email per line.
 	- Each email should be followind the construction : `fistname.lastname@domain.com`
 
 ## Running a prank campaign
+
 When all the properties are set, launching the program will open a connection to the server and begin sending the emails. 
+
+1. Go in folder Mailrobot with terminal, execute a mvn clean install to get the last jar.
+2. Go in folder MailRobot_Test and execute this command `java -jar MailRobot.jar ./config/victimes.utf8 ./config/messages.utf8`
 
